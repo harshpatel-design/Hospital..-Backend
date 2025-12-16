@@ -109,6 +109,9 @@ roomNumberSchema.index(
 );
 
 /**
+ * 
+ * 
+ * 
  * 🔍 Query performance indexes
  */
 roomNumberSchema.index({ roomType: 1, isActive: 1 });
