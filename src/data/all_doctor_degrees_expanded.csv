@@ -1,0 +1,55 @@
+name,shortName,level
+Bachelor of Ayurvedic Medicine and Surgery,BAMS,UG
+Bachelor of Dental Surgery,BDS,UG
+Bachelor of Homeopathic Medicine and Surgery,BHMS,UG
+Bachelor of Naturopathy and Yogic Sciences,BNYS,UG
+Bachelor of Occupational Therapy,BOT,UG
+Bachelor of Physiotherapy,BPT,UG
+Bachelor of Siddha Medicine and Surgery,BSMS,UG
+Bachelor of Science Nursing,BSc Nursing,UG
+Bachelor of Unani Medicine and Surgery,BUMS,UG
+Doctorate of Medicine,DM,SUPER_SPECIALITY
+Diplomate of National Board,DNB,PG
+Doctor of Osteopathic Medicine (USA),DO,PG
+Diploma in Anesthesia,DA,DIPLOMA
+Diploma in Dermatology,DIPLOMA,DIPLOMA
+Diploma in ENT,DLO,DIPLOMA
+Diploma in Gynecology & Obstetrics,DGO,DIPLOMA
+Diploma in Ophthalmology,DO,DIPLOMA
+Diploma in Orthopedics,D.Ortho,DIPLOMA
+Diploma in Pediatrics,DCH,DIPLOMA
+Diploma in Radiology,DMRE,DIPLOMA
+Fellowship of National Board,FNB,FELLOWSHIP
+Fellowship of Royal College of Surgeons,FRCS,FELLOWSHIP
+Fellowship in Cardiology,,FELLOWSHIP
+Fellowship in Critical Care,,FELLOWSHIP
+Fellowship in Diabetology,,FELLOWSHIP
+Fellowship in Emergency Medicine,,FELLOWSHIP
+Fellowship in Endocrinology,,FELLOWSHIP
+Fellowship in Gastroenterology,,FELLOWSHIP
+Fellowship in IVF & Reproductive Medicine,,FELLOWSHIP
+Fellowship in Nephrology,,FELLOWSHIP
+Fellowship in Neurology,,FELLOWSHIP
+Fellowship in Oncology,,FELLOWSHIP
+Fellowship in Pulmonology,,FELLOWSHIP
+Fellowship in Radiology,,FELLOWSHIP
+Fellowship in Rheumatology,,FELLOWSHIP
+General Nursing and Midwifery,GNM,UG
+Bachelor of Medicine and Bachelor of Surgery,MBBS,UG
+Master of Chirurgiae,MCh,SUPER_SPECIALITY
+Doctor of Medicine (Ayurveda),MD Ayurveda,PG
+Doctor of Medicine,MD,PG
+Doctor of Medicine (Homeopathy),MD Homeopathy,PG
+Doctor of Medicine (USA),MD USA,PG
+Master of Dental Surgery,MDS,PG
+Master of Occupational Therapy,MOT,PG
+Master of Physiotherapy,MPT,PG
+Member of Royal College of Physicians,MRCP,PG
+Member of Royal College of Surgeons,MRCS,PG
+Master of Surgery,MS,PG
+Master of Science Anatomy,MSc Anatomy,PG
+Master of Science Biochemistry,MSc Biochemistry,PG
+Master of Science Clinical Research,MSc Clinical Research,PG
+Master of Science Microbiology,MSc Microbiology,PG
+Master of Science Nursing,MSc Nursing,PG
+Master of Science Physiology,MSc Physiology,PG

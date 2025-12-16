@@ -1,0 +1,64 @@
+name,code,category,unit,normalRange,sampleType,turnaroundTime,isActive
+
+# ================= HEMATOLOGY =================
+Complete Blood Count,CBC,HEMATOLOGY,cells/mcL,4000-11000,Blood,24,true
+Hemoglobin,HB,HEMATOLOGY,g/dL,12-16,Blood,6,true
+RBC Count,RBC,HEMATOLOGY,million/cmm,4.5-5.5,Blood,6,true
+WBC Count,WBC,HEMATOLOGY,cells/mcL,4000-11000,Blood,6,true
+Platelet Count,PLT,HEMATOLOGY,lakhs/cmm,1.5-4.5,Blood,6,true
+ESR,ESR,HEMATOLOGY,mm/hr,0-20,Blood,6,true
+PCV,PCV,HEMATOLOGY,%,36-46,Blood,6,true
+MCV,MCV,HEMATOLOGY,fL,80-96,Blood,6,true
+MCH,MCH,HEMATOLOGY,pg,27-33,Blood,6,true
+MCHC,MCHC,HEMATOLOGY,g/dL,32-36,Blood,6,true
+
+# ================= BIOCHEMISTRY =================
+Blood Sugar Fasting,BSF,BIOCHEMISTRY,mg/dL,70-110,Blood,6,true
+Blood Sugar PP,BSPP,BIOCHEMISTRY,mg/dL,70-140,Blood,6,true
+Random Blood Sugar,RBS,BIOCHEMISTRY,mg/dL,70-140,Blood,6,true
+HbA1c,HBA1C,BIOCHEMISTRY,%,4-6,Blood,24,true
+Urea,UREA,BIOCHEMISTRY,mg/dL,15-40,Blood,12,true
+Creatinine,CREAT,BIOCHEMISTRY,mg/dL,0.6-1.3,Blood,12,true
+Uric Acid,URIC,BIOCHEMISTRY,mg/dL,3.5-7.2,Blood,12,true
+Total Bilirubin,BILI_T,BIOCHEMISTRY,mg/dL,0.2-1.2,Blood,12,true
+SGOT (AST),SGOT,BIOCHEMISTRY,U/L,5-40,Blood,24,true
+SGPT (ALT),SGPT,BIOCHEMISTRY,U/L,7-56,Blood,24,true
+Alkaline Phosphatase,ALP,BIOCHEMISTRY,U/L,44-147,Blood,24,true
+
+# ================= LIPID PROFILE =================
+Total Cholesterol,CHOL,BIOCHEMISTRY,mg/dL,<200,Blood,24,true
+Triglycerides,TG,BIOCHEMISTRY,mg/dL,<150,Blood,24,true
+HDL Cholesterol,HDL,BIOCHEMISTRY,mg/dL,>40,Blood,24,true
+LDL Cholesterol,LDL,BIOCHEMISTRY,mg/dL,<100,Blood,24,true
+VLDL,VLDL,BIOCHEMISTRY,mg/dL,5-40,Blood,24,true
+
+# ================= IMMUNOLOGY / SEROLOGY =================
+CRP,CRP,IMMUNOLOGY,mg/L,0-5,Blood,24,true
+ASO Titre,ASO,IMMUNOLOGY,IU/mL,<200,Blood,24,true
+RA Factor,RA,IMMUNOLOGY,IU/mL,<20,Blood,24,true
+ANA,ANA,IMMUNOLOGY,,Negative,Blood,48,true
+HIV I & II,HIV,IMMUNOLOGY,,Non Reactive,Blood,24,true
+HBsAg,HBsAg,IMMUNOLOGY,,Negative,Blood,24,true
+Anti-HCV,HCV,IMMUNOLOGY,,Negative,Blood,24,true
+Widal Test,WIDAL,IMMUNOLOGY,,Negative,Blood,48,true
+
+# ================= MICROBIOLOGY =================
+Blood Culture,BCULT,MICROBIOLOGY,,No Growth,Blood,72,true
+Urine Culture,UCULT,MICROBIOLOGY,,No Growth,Urine,72,true
+Stool Culture,SCULT,MICROBIOLOGY,,No Pathogen,Stool,72,true
+Sputum AFB,AFB,MICROBIOLOGY,,Negative,Sputum,48,true
+Gram Stain,GRAM,MICROBIOLOGY,,Normal,Sample,24,true
+
+# ================= PATHOLOGY =================
+Urine Routine,URINE_R,PATHOLOGY,,Normal,Urine,8,true
+Stool Routine,STOOL_R,PATHOLOGY,,Normal,Stool,12,true
+Peripheral Smear,PS,PATHOLOGY,,Normal,Blood,24,true
+Pregnancy Test (UPT),UPT,PATHOLOGY,,Negative,Urine,2,true
+
+# ================= RADIOLOGY =================
+X-Ray Chest,XRAY_CHEST,RADIOLOGY,,Normal,Imaging,12,true
+X-Ray KUB,XRAY_KUB,RADIOLOGY,,Normal,Imaging,12,true
+USG Abdomen,USG_ABD,RADIOLOGY,,Normal,Imaging,24,true
+USG Pelvis,USG_PELVIS,RADIOLOGY,,Normal,Imaging,24,true
+CT Brain,CT_BRAIN,RADIOLOGY,,Normal,Imaging,24,true
+MRI Brain,MRI_BRAIN,RADIOLOGY,,Normal,Imaging,48,true

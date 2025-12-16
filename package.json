@@ -1,0 +1,42 @@
+{
+  "name": "hospital-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --watch src --exec node src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint . --ext .js",
+    "test": "echo \"no tests\"",
+    "docker:build": "docker build -t hospital-backend .",
+    "import-services": "node src/scripts/importServiceNames.js",
+    "import-departments": "node src/scripts/importDepartments.js",
+    "import-specializations": "node src/scripts/importSpecializations.js",
+    "import-labtests": "node src/scripts/importLabTests.js",
+    "import-all": "node src/scripts/importAllMasters.js",
+    "clean-masters": "node src/scripts/cleanAllMasters.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
+    "csvtojson": "^2.0.14",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.4.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.10",
+    "winston": "^3.9.0",
+    "xlsx": "^0.18.5",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "nodemon": "^2.0.22"
+  }
+}

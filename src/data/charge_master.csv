@@ -1,0 +1,104 @@
+name,code,chargeType,amount,currency,labTest,doctor,department,effectiveFrom,effectiveTo,isActive,gstApplicable,gstRate,gstType,hsnCode,taxInclusive
+
+# ---------- OPD (GST EXEMPT) ----------
+General OPD Consultation,OPD-GEN-001,OPD,500,INR,,,,2024-01-01,,true,false,0,,999311,false
+Specialist Consultation,OPD-SPL-001,OPD,1000,INR,,,,2024-01-01,,true,false,0,,999311,false
+Emergency Consultation,OPD-EMR-001,EMERGENCY,1200,INR,,,,2024-01-01,,true,false,0,,999312,false
+
+# ---------- APPOINTMENT ----------
+Video Consultation,APP-VID-001,APPOINTMENT,400,INR,,,,2024-01-01,,true,false,0,,999311,false
+Priority Appointment Fee,APP-PRIO-001,APPOINTMENT,250,INR,,,,2024-01-01,,true,true,18,CGST_SGST,998599,false
+
+# ---------- IPD (GST EXEMPT) ----------
+Private Room (Per Day),IPD-RM-PR-001,IPD,5500,INR,,,,2024-01-01,,true,false,0,,999312,false
+ICU Daily Charge,IPD-ICU-DAY-001,IPD,15000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Ventilator Charges,IPD-VNT-001,IPD,12000,INR,,,,2024-01-01,,true,false,0,,999312,false
+
+# ---------- LAB TESTS (5% GST) ----------
+Complete Blood Count,LAB-CBC-001,LAB,350,INR,64fa45b9a1e912ab23cc0011,true,true,5,CGST_SGST,999313,false
+Hemoglobin,LAB-HB-001,LAB,150,INR,64fa45b9a1e912ab23cc0012,true,true,5,CGST_SGST,999313,false
+RBC Count,LAB-RBC-001,LAB,180,INR,64fa45b9a1e912ab23cc0013,true,true,5,CGST_SGST,999313,false
+WBC Count,LAB-WBC-001,LAB,180,INR,64fa45b9a1e912ab23cc0014,true,true,5,CGST_SGST,999313,false
+Platelet Count,LAB-PLT-001,LAB,220,INR,64fa45b9a1e912ab23cc0015,true,true,5,CGST_SGST,999313,false
+ESR,LAB-ESR-001,LAB,150,INR,64fa45b9a1e912ab23cc0016,true,true,5,CGST_SGST,999313,false
+
+Blood Sugar Fasting,LAB-BSF-001,LAB,150,INR,64fa45b9a1e912ab23cc0021,true,true,5,CGST_SGST,999313,false
+Blood Sugar PP,LAB-BSPP-001,LAB,180,INR,64fa45b9a1e912ab23cc0022,true,true,5,CGST_SGST,999313,false
+Random Blood Sugar,LAB-RBS-001,LAB,160,INR,64fa45b9a1e912ab23cc0023,true,true,5,CGST_SGST,999313,false
+HbA1c,LAB-HBA1C-001,LAB,600,INR,64fa45b9a1e912ab23cc0024,true,true,5,CGST_SGST,999313,false
+
+Urea,LAB-UREA-001,LAB,250,INR,64fa45b9a1e912ab23cc0025,true,true,5,CGST_SGST,999313,false
+Creatinine,LAB-CREAT-001,LAB,280,INR,64fa45b9a1e912ab23cc0026,true,true,5,CGST_SGST,999313,false
+Uric Acid,LAB-URIC-001,LAB,300,INR,64fa45b9a1e912ab23cc0027,true,true,5,CGST_SGST,999313,false
+
+CRP,LAB-CRP-001,LAB,900,INR,64fa45b9a1e912ab23cc0031,true,true,5,CGST_SGST,999313,false
+RA Factor,LAB-RA-001,LAB,700,INR,64fa45b9a1e912ab23cc0032,true,true,5,CGST_SGST,999313,false
+Widal Test,LAB-WIDAL-001,LAB,450,INR,64fa45b9a1e912ab23cc0033,true,true,5,CGST_SGST,999313,false
+
+Urine Routine,LAB-URINE-001,LAB,200,INR,64fa45b9a1e912ab23cc0041,true,true,5,CGST_SGST,999313,false
+Pregnancy Test (UPT),LAB-UPT-001,LAB,120,INR,64fa45b9a1e912ab23cc0042,true,true,5,CGST_SGST,999313,false
+
+X-Ray Chest,RAD-XRC-001,LAB,700,INR,64fa45b9a1e912ab23cc0051,true,true,12,CGST_SGST,999312,false
+USG Abdomen,RAD-USG-001,LAB,1800,INR,64fa45b9a1e912ab23cc0052,true,true,12,CGST_SGST,999312,false
+CT Brain,RAD-CTB-001,LAB,4500,INR,64fa45b9a1e912ab23cc0053,true,true,12,CGST_SGST,999312,false
+MRI Brain,RAD-MRI-001,LAB,6500,INR,64fa45b9a1e912ab23cc0054,true,true,12,CGST_SGST,999312,false
+
+
+# ---------- RADIOLOGY (12% GST) ----------
+X-Ray Chest,RAD-XRC-001,LAB,700,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+CT Scan Brain,RAD-CTB-001,LAB,4500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+MRI Brain,RAD-MRI-001,LAB,6500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+
+# ---------- PROCEDURES / OT (12% GST) ----------
+Minor Surgery,PROC-MIN-001,PROCEDURE,12000,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+OT Charges (Per Hour),PROC-OT-001,PROCEDURE,5000,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+Anesthesia Charges,PROC-ANES-001,PROCEDURE,8000,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+
+# ---------- MATERNITY (GST EXEMPT) ----------
+Normal Delivery Package,PKG-DEL-NRM-001,PROCEDURE,35000,INR,,,,2024-01-01,,true,false,0,,999312,false
+C-Section Package,PKG-DEL-CS-001,PROCEDURE,75000,INR,,,,2024-01-01,,true,false,0,,999312,false
+
+
+# ---------- AMBULANCE / ADMIN (18% GST) ----------
+Ambulance (Within City),SERV-AMB-001,SERVICE,2000,INR,,,TRANSPORT,2024-01-01,,true,true,18,CGST_SGST,996512,false
+Ambulance (Outstation),SERV-AMB-002,SERVICE,5000,INR,,,TRANSPORT,2024-01-01,,true,true,18,CGST_SGST,996512,false
+Medical Certificate Charge,SERV-MEDC-001,SERVICE,300,INR,,,ADMIN,2024-01-01,,true,true,18,CGST_SGST,998599,false
+Insurance Processing Fee,ADM-INS-001,SERVICE,500,INR,,,ADMIN,2024-01-01,,true,true,18,CGST_SGST,998599,false
+
+# ---------- DIAGNOSTIC SERVICES (12% GST) ----------
+ECG,ECG-001,LAB,800,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+EEG,EEG-001,LAB,1500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+Pulmonary Function Test,PFT-001,LAB,1200,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+Treadmill Test,TMT-001,LAB,2500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+2D Echo,ECHO-001,LAB,2500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+
+# ---------- THERAPIES ----------
+Physiotherapy Session,PHYSIO-001,SERVICE,800,INR,,,PHYSIOTHERAPY,2024-01-01,,true,true,18,CGST_SGST,999312,false
+Chemotherapy Session,CHEMO-001,PROCEDURE,5000,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+Hemodialysis,DIAL-001,PROCEDURE,3500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+
+# ---------- ROOM CHARGES (GST EXEMPT) ----------
+General Ward (Per Day),RM-GEN-001,IPD,GENERAL,2000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Semi-Private Room (Per Day),RM-SP-001,IPD,SEMI_PRIVATE,3500,INR,,,,2024-01-01,,true,false,0,,999312,false
+Private Room (Per Day),RM-PR-001,IPD,PRIVATE,5000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Deluxe Room (Per Day),RM-DLX-001,IPD,DELUXE,6000,INR,,,,2024-01-01,,true,false,0,,999312,false
+VIP Suite (Per Day),RM-VIP-001,IPD,SUITE,10000,INR,,,,2024-01-01,,true,false,0,,999312,false
+
+
+ICU Bed Charges (Per Day),RM-ICU-001,IPD,ICU,15000,INR,,,,2024-01-01,,true,false,0,,999312,false
+NICU Bed Charges (Per Day),RM-NICU-001,IPD,NICU,18000,INR,,,,2024-01-01,,true,false,0,,999312,false
+PICU Bed Charges (Per Day),RM-PICU-001,IPD,PICU,16000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Isolation Room Charges (Per Day),RM-ISO-001,IPD,ISOLATION,7000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Burn Ward Charges (Per Day),RM-BURN-001,IPD,BURN,9000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Day Care Bed Charges,RM-DAY-001,IPD,DAY_CARE,3000,INR,,,,2024-01-01,,true,false,0,,999312,false
+
+
+# ---------- DOCTOR VISITS (GST EXEMPT) ----------
+Senior Consultant Visit,OPD-SR-001,OPD,1500,INR,,,,2024-01-01,,true,false,0,,999311,false
+Super Specialist Visit,OPD-SS-001,OPD,2000,INR,,,,2024-01-01,,true,false,0,,999311,false
+Follow-up Consultation,OPD-FU-001,OPD,300,INR,,,,2024-01-01,,true,false,0,,999311,false
+
+# ---------- MEDICAL EQUIPMENT ----------
+Ventilator (Per Day),EQ-VNT-001,IPD,10000,INR,,,,2024-01-01,,true,false,0,,999312,false
+Cardiac Monitor,HRT-MON-001,IPD,1500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
+Syringe Pump,EQ-SP-001,IPD,500,INR,,,,2024-01-01,,true,true,12,CGST_SGST,999312,false
