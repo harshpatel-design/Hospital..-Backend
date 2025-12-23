@@ -52,12 +52,6 @@ const wardMasterSchema = new mongoose.Schema(
       index: true,
     },
 
-    totalBeds: {
-      type: Number,
-      required: true,
-      min: [1, "Total beds must be at least 1"],
-    },
-
     isActive: {
       type: Boolean,
       default: true,
@@ -105,7 +99,33 @@ wardMasterSchema.virtual("beds", {
 
 /* ================= BUSINESS VALIDATION ================= */
 
-// Ensure totalBeds matches actual BedMaster count
+function formatDate(date) {
+  const d = new Date(date);
+
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+
+  const hours = String(d.getHours()).padStart(2, "0");
+  const minutes = String(d.getMinutes()).padStart(2, "0");
+  const seconds = String(d.getSeconds()).padStart(2, "0");
+
+  return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+}
+
+wardMasterSchema.set("toJSON", {
+  virtuals: true,
+  transform: (doc, ret) => {
+    if (ret.createdAt) {
+      ret.createdAt = formatDate(ret.createdAt);
+    }
+    if (ret.updatedAt) {
+      ret.updatedAt = formatDate(ret.updatedAt);
+    }
+    return ret;
+  },
+});
+
 wardMasterSchema.pre("save", async function (next) {
   if (!this.isNew) return next();
 

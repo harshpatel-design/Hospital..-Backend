@@ -1,178 +1,105 @@
+import Joi from "joi";
 import mongoose from "mongoose";
 
-const wardMasterSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: [true, "Ward name is required"],
-      trim: true,
-      uppercase: true,
-      minlength: [3, "Ward name must be at least 3 characters"],
-    },
+/* ================= OBJECT ID VALIDATOR ================= */
 
-    code: {
-      type: String,
-      required: [true, "Ward code is required"],
-      trim: true,
-      uppercase: true,
-      unique: true,
-      match: [/^[A-Z0-9-]+$/, "Invalid ward code format"],
-    },
-
-    wardType: {
-      type: String,
-      required: [true, "Ward type is required"],
-      enum: {
-        values: [
-          "GENERAL",
-          "SEMI_PRIVATE",
-          "PRIVATE",
-          "DELUXE",
-          "SUITE",
-          "ICU",
-          "NICU",
-          "PICU",
-          "CCU",
-          "HDU",
-          "ISOLATION",
-          "BURN",
-          "DAY_CARE",
-        ],
-        message: "Invalid ward type",
-      },
-      index: true,
-    },
-
-    department: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Department",
-      default: null,
-    },
-
-    floor: {
-      type: String,
-      trim: true,
-    },
-
-    totalBeds: {
-      type: Number,
-      required: [true, "Total beds is required"],
-      min: [1, "Ward must have at least 1 bed"],
-    },
-
-    occupiedBeds: {
-      type: Number,
-      default: 0,
-      min: [0, "Occupied beds cannot be negative"],
-    },
-
-    genderRestriction: {
-      type: String,
-      enum: {
-        values: ["MALE", "FEMALE", "MIXED"],
-        message: "Gender restriction must be MALE, FEMALE, or MIXED",
-      },
-      default: "MIXED",
-    },
-
-    nursingLevel: {
-      type: String,
-      enum: {
-        values: ["STANDARD", "HIGH_DEPENDENCY", "CRITICAL"],
-        message: "Invalid nursing level",
-      },
-      default: "STANDARD",
-    },
-
-    isolationSupported: {
-      type: Boolean,
-      default: false,
-    },
-
-    oxygenSupported: {
-      type: Boolean,
-      default: false,
-    },
-
-    ventilatorSupported: {
-      type: Boolean,
-      default: false,
-    },
-
-    isActive: {
-      type: Boolean,
-      default: true,
-      index: true,
-    },
-
-    notes: {
-      type: String,
-      trim: true,
-      maxlength: [500, "Notes cannot exceed 500 characters"],
-    },
-
-    createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-
-    updatedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-  },
-  {
-    timestamps: true,
-    versionKey: false,
+const objectId = Joi.string().custom((value, helpers) => {
+  if (!mongoose.Types.ObjectId.isValid(value)) {
+    return helpers.message("Invalid ObjectId");
   }
-);
-
-/* ================= INDEXES ================= */
-
-wardMasterSchema.index({ code: 1 }, { unique: true });
-wardMasterSchema.index({ wardType: 1, isActive: 1 });
-
-/* ================= BUSINESS VALIDATION ================= */
-
-// Bed count consistency
-wardMasterSchema.pre("save", function (next) {
-  if (this.occupiedBeds > this.totalBeds) {
-    return next(
-      new Error("Occupied beds cannot exceed total beds")
-    );
-  }
-
-  // ICU / NICU must support oxygen
-  if (
-    ["ICU", "NICU", "PICU", "CCU"].includes(this.wardType) &&
-    !this.oxygenSupported
-  ) {
-    return next(
-      new Error(`${this.wardType} must have oxygen support`)
-    );
-  }
-
-  // Ventilator only allowed in critical wards
-  if (
-    this.ventilatorSupported &&
-    !["ICU", "NICU", "PICU", "CCU", "HDU"].includes(this.wardType)
-  ) {
-    return next(
-      new Error("Ventilator support allowed only in critical wards")
-    );
-  }
-
-  next();
+  return value;
 });
 
-/* ================= DUPLICATE KEY HANDLING ================= */
+/* ================= CREATE WARD ================= */
 
-wardMasterSchema.post("save", function (error, doc, next) {
-  if (error.code === 11000) {
-    next(new Error("Ward code already exists"));
-  } else {
-    next(error);
-  }
+export const createWardValidation = Joi.object({
+  name: Joi.string()
+    .trim()
+    .uppercase()
+    .min(2)
+    .max(100)
+    .required()
+    .messages({
+      "string.empty": "Ward name is required",
+      "string.min": "Ward name must be at least 2 characters",
+      "string.max": "Ward name cannot exceed 100 characters",
+    }),
+
+  code: Joi.string()
+    .trim()
+    .uppercase()
+    .pattern(/^[A-Z0-9-]+$/)
+    .required()
+    .messages({
+      "string.empty": "Ward code is required",
+      "string.pattern.base": "Invalid ward code format",
+    }),
+
+  wardType: Joi.string()
+    .valid(
+      "GENERAL",
+      "SEMI_PRIVATE",
+      "PRIVATE",
+      "DELUXE",
+      "SUITE",
+      "ICU",
+      "NICU",
+      "PICU",
+      "CCU",
+      "HDU",
+      "ISOLATION",
+      "BURN",
+      "DAY_CARE"
+    )
+    .required()
+    .messages({
+      "any.only": "Invalid ward type",
+      "any.required": "Ward type is required",
+    }),
+
+  department: objectId
+    .allow(null)
+    .optional()
+    .messages({
+      "string.custom": "Invalid department reference",
+    }),
+
+  floor: objectId
+    .required()
+    .messages({
+      "any.required": "Floor reference is required",
+      "string.custom": "Invalid floor reference",
+    }),
+
+  notes: Joi.string()
+    .trim()
+    .max(500)
+    .allow("", null)
+    .messages({
+      "string.max": "Notes cannot exceed 500 characters",
+    }),
 });
 
-export default mongoose.model("WardMaster", wardMasterSchema);
+
+export const updateWardValidation = Joi.object({
+  name: Joi.string().trim().uppercase().min(2).max(100),
+  wardType: Joi.string().valid(
+    "GENERAL",
+    "SEMI_PRIVATE",
+    "PRIVATE",
+    "DELUXE",
+    "SUITE",
+    "ICU",
+    "NICU",
+    "PICU",
+    "CCU",
+    "HDU",
+    "ISOLATION",
+    "BURN",
+    "DAY_CARE"
+  ),
+  department: objectId.allow(null),
+  floor: objectId,
+  isActive: Joi.boolean(),
+  notes: Joi.string().trim().max(500).allow("", null),
+}).min(1);

@@ -14,7 +14,6 @@ export const getAllFloorsService = async (
     const searchRegex = search ? new RegExp(search, "i") : null;
 
     const filter = {
-        isActive: true,
         ...(search && {
             $or: [
                 { name: searchRegex },
@@ -83,11 +82,13 @@ export const createFloorService = async (data, userId) => {
 
 
 export const updateFloorService = async (id, data, userId) => {
+    console.log("data",data);
+    
     const floor = await FloorMaster.findByIdAndUpdate(
         id,
         {
             ...data,
-            updatedBy: userId, // ✅ only this changes
+            updatedBy: userId,
         },
         { new: true, runValidators: true }
     )

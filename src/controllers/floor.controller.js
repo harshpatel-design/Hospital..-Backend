@@ -34,7 +34,7 @@ export const getAllFloors = async (req, res, next) => {
             search,
             ordering
         );
-
+        console.log("result", result);
         return sendSuccess(res, 200, result);
     } catch (err) {
         return sendError(next, err);

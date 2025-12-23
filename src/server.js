@@ -24,7 +24,9 @@ import appointmentRoutes from "./routes/appointment.routes.js";
 import serviceNameRoutes from "./routes/serviceNames.routes.js";
 import serviceRoutes from './routes/service.routes.js';
 import labTestRoutes from './routes/labTest.routes.js';
-import roomRoutes from './routes/room.routes.js'; 
+import roomRoutes from './routes/room.routes.js';
+import bedRoutes from "./routes/bed.routes.js";
+import wardRoutes from "./routes/ward.routes.js";
 
 
 import floorRoutes from "./routes/floor.routes.js";
@@ -90,6 +92,9 @@ app.use("/api/servicenames", serviceNameRoutes);
 app.use("/api", labTestRoutes);
 app.use("/api", floorRoutes);
 app.use("/api", roomRoutes);
+app.use("/api", bedRoutes);
+app.use("/api", wardRoutes);
+
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Server is running' });
 });

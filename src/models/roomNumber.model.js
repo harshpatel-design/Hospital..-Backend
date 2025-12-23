@@ -115,6 +115,8 @@ roomNumberSchema.index({ roomType: 1, isActive: 1 });
 roomNumberSchema.index({ floor: 1, isActive: 1 });
 
 /**
+ * 
+ * 
  * 🛏 Available beds virtual
  */
 roomNumberSchema.virtual("availableBeds").get(function () {
